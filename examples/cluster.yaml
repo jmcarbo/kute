@@ -1,0 +1,15 @@
+# a cluster with 3 control-plane nodes and 3 workers
+kind: Cluster
+apiVersion: kind.sigs.k8s.io/v1alpha3
+nodes:
+- role: control-plane
+- role: control-plane
+- role: control-plane
+- role: worker
+  extraPortMappings:
+  - containerPort: 32080
+    hostPort: 80
+  - containerPort: 32443
+    hostPort: 443
+- role: worker
+- role: worker
